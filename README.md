@@ -1,8 +1,11 @@
-# ListenerControl
+# QuiteCat
+
 
 Metasploit Framework (MSFConsole) üzerinde **reverse TCP dinleyici (handler)** yönetimini kolaylaştırmak amacıyla geliştirilmiş, **menü tabanlı**, **otomasyon odaklı** bir yardımcı araçtır.
 
 Araç; LHOST / LPORT yönetimi, dinleyici başlatma ve post-exploitation aşamalarında sık kullanılan **cheat komutlarını** tek merkezde toplayarak süreci hızlandırır.
+
+<img width="1908" height="983" alt="Ekran görüntüsü 2026-01-07 171922" src="https://github.com/user-attachments/assets/e6d20b66-d03c-4933-a1b4-b640b89aa5d9" />
 
 ---
 
