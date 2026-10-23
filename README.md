@@ -1,132 +1,85 @@
+<div align="center">
+
 # QuiteCat
 
-An automation-focused, menu-driven auxiliary tool developed to simplify **reverse TCP listener (handler)** management on Metasploit Framework (MSFConsole).
+### A menu-driven helper for managing Metasploit reverse TCP listeners.
 
-The tool accelerates the exploitation process by consolidating LHOST / LPORT management, listener initialization, and frequently-used **cheat commands** for post-exploitation phases into a single centralized location.
+Keeps LHOST/LPORT configuration, `multi/handler` startup, and a set of post-exploitation cheat commands in one place, so you spend less time retyping handler setup on MSFConsole.
 
-<img width="1908" height="983" alt="Screenshot 2026-01-07 171922" src="https://github.com/user-attachments/assets/e6d20b66-d03c-4933-a1b4-b640b89aa5d9" />
+![Python](https://img.shields.io/badge/Python-3.x-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![Platform](https://img.shields.io/badge/Platform-Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black)
+![Metasploit](https://img.shields.io/badge/Requires-Metasploit-e53935?style=for-the-badge&logo=metasploit&logoColor=white)
+![Purpose](https://img.shields.io/badge/Use-Authorized%20testing%20only-121212?style=for-the-badge)
+
+</div>
+
+<div align="center">
+<img width="1908" alt="QuiteCat interface" src="https://github.com/user-attachments/assets/e6d20b66-d03c-4933-a1b4-b640b89aa5d9" />
+</div>
 
 ---
 
-## General Features
+## Overview
+
+Setting up a reverse TCP listener on Metasploit means the same handler commands every time. QuiteCat wraps that in a small menu: it validates and stores LHOST/LPORT, launches `exploit/multi/handler` with the right payload, and keeps a reference sheet of common MSFConsole commands for the post-exploitation phase.
+
+---
+
+## Menu Options
+
+| Option | Action |
+|---|---|
+| 1 — Cheat Codes | Frequently used MSFConsole commands and scenario-based examples |
+| 2 — Update Settings | Set LHOST and LPORT with IP/port validation |
+| 3 — Start Listener | Launch a reverse TCP listener via `exploit/multi/handler` |
+| 0 — Exit | Clean exit |
+
+---
+
+## Listener Behaviour
+
+- `msfconsole` launched in quiet mode (`-q`)
+- Uses `exploit/multi/handler`
+- Default payload `windows/meterpreter/reverse_tcp`
+- LHOST and LPORT set automatically from your saved configuration
+- Listener runs as a background job (`-j`)
+
+---
+
+## Features
 
 - Menu-driven interface
-- LHOST and LPORT validated configuration management
-- Metasploit `multi/handler` automatic initialization
+- Validated LHOST / LPORT configuration management
+- Automatic `multi/handler` initialization
 - IP address and port validation
-- Educational MSF cheat-sheet integration
+- Reference cheat-sheet for learning MSF post-exploitation commands
 - ASCII banner and loading animation
 
 ---
 
 ## Requirements
 
-- Python 3.x
-- Metasploit Framework
-- Linux-based operating system
-- Terminal access
+| Component | Notes |
+|---|---|
+| Python 3.x | Interpreter |
+| Metasploit Framework | Provides `msfconsole` |
+| Linux + terminal access | Tested on Linux |
 
 ---
 
 ## Installation
 
-Clone the project to your local system:
 ```bash
-git clone https://github.com/osmnabyram/QuiteCat.py.git
-cd QuiteCat.py
+git clone https://github.com/osmnabyram/Siber-QuiteCat.git
+cd Siber-QuiteCat
 chmod +x QuiteCat.py
+python3 QuiteCat.py
 ```
 
-## Menu Options
-
-- **[1] Cheat Codes**
-  Frequently-used commands on MSFConsole and scenario-based examples
-
-- **[2] Update Settings (IP / Port)**
-  Update LHOST and LPORT values with validation
-
-- **[3] Start Listener**
-  Initialize reverse TCP listener with Metasploit `exploit/multi/handler`
-
-- **[0] Exit**
-  Secure exit from program
+Set your LHOST/LPORT from the menu before starting a listener.
 
 ---
 
-## Workflow
+## Responsible Use
 
-- System loading animation is displayed
-- ASCII banner is printed
-- Current LHOST and LPORT values are displayed
-- User makes a selection from the menu
-- Corresponding function is executed based on selection
-
----
-
-## Listener Initialization Process
-
-- `msfconsole` is launched in quiet mode (`-q`)
-- `exploit/multi/handler` is utilized
-- Payload: `windows/meterpreter/reverse_tcp`
-- LHOST and LPORT are set automatically
-- Listener runs in the background (`-j`)
-
----
-
-## Integrated Cheat Codes (Summary)
-
-### Basic
-
-- `use exploit/multi/handler`
-- `set PAYLOAD windows/meterpreter/reverse_tcp`
-- `exploit -j`
-
-### System Information
-
-- `sysinfo`
-- `getuid`
-- `ifconfig`
-
-### Keylogger
-
-- `keyscan_start`
-- `keyscan_dump`
-- `keyscan_stop`
-
-### File System
-
-- `download C:\\file.txt`
-- `upload /path/file`
-- `search -f *.pdf`
-
-### Privilege Escalation
-
-- `getsystem`
-- `run post/multi/recon/local_exploit_suggester`
-- `use exploit/windows/local/bypassuac`
-
----
-
-## Error Controls
-
-- Invalid IP addresses are rejected
-- Ports outside the range 1–65535 are denied
-- User is notified if MSFConsole fails to start
-
----
-
-## Security Notes
-
-- Tool is for educational and laboratory purposes only
-- Unauthorized use on real systems is prohibited
-- Users are responsible for their own actions
-
----
-
-## Legal Notice
-
-This software is developed exclusively for **educational**, **CTF**, and **authorized penetration testing** purposes.
-
-Use against unauthorized systems is **illegal** and incurs **legal consequences**.
-
-The developer (**osmnabyram**) assumes no responsibility for any **legal** or **technical** damages resulting from misuse of this tool.
+QuiteCat is a convenience wrapper around Metasploit intended **only** for education and for engagements you are explicitly authorized to perform. Using it against systems without permission is illegal. The author accepts no liability for misuse.
