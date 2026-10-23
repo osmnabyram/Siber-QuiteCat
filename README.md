@@ -19,6 +19,10 @@ Keeps LHOST/LPORT configuration, `multi/handler` startup, and a set of post-expl
 
 ---
 
+<div align="center">
+<img src="assets/how-it-works.svg" alt="How it works: an animated diagram of the tool's core flow." width="820" />
+</div>
+
 ## Overview
 
 Setting up a reverse TCP listener on Metasploit means the same handler commands every time. QuiteCat wraps that in a small menu: it validates and stores LHOST/LPORT, launches `exploit/multi/handler` with the right payload, and keeps a reference sheet of common MSFConsole commands for the post-exploitation phase.
